@@ -358,6 +358,42 @@
     display:block; font-family:'Inter',sans-serif; font-weight:500;
     font-size:15.5px; letter-spacing:.02em; color:#4a4033;
     text-transform:none; margin-top:5px;
+    word-break: break-word;
+  }
+  .rsvp .who span a{
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--grass);
+    text-underline-offset: 2px;
+  }
+  .rsvp .who span a:hover{ color: var(--grass-dk); }
+
+  /* RSVP CTA button */
+  .rsvp-cta{
+    grid-column: 1 / -1;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:4px;
+    padding: 14px 18px;
+    background: var(--grass-dk);
+    color: var(--cream);
+    border-radius: 4px;
+    text-decoration: none;
+    text-align:center;
+    border: 2px solid var(--ink);
+    box-shadow: 0 3px 0 var(--ink);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .rsvp-cta:hover{ transform: translateY(-1px); box-shadow: 0 4px 0 var(--ink); background: var(--grass); }
+  .rsvp-cta:active{ transform: translateY(1px); box-shadow: 0 1px 0 var(--ink); }
+  .rsvp-cta-eyebrow{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800; letter-spacing:.25em; font-size:11.5px;
+    text-transform:uppercase; color: var(--red);
+  }
+  .rsvp-cta-label{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:900; letter-spacing:.03em; font-size:22px;
+    text-transform:uppercase; color: var(--cream);
   }
 
   /* footer */
@@ -526,18 +562,22 @@
       </div>
 
       <div class="rsvp">
+        <a class="rsvp-cta" href="mailto:trevorcoddington@gmail.com,myemailaddress1100@gmail.com?subject=Trevor%27s%209th%20Birthday%20RSVP&amp;body=Hi%20Carolyn%20and%20Trevor%2C%0A%0AWe%27ll%20be%20there%20for%20the%20Pitch%20%26%20Putt%20Par-Tee%21%0A%0AName%3A%20%0ANumber%20of%20attendees%3A%20%0AAny%20dietary%20notes%3A%20%0A%0AThanks%21">
+          <span class="rsvp-cta-eyebrow">One-tap RSVP</span>
+          <span class="rsvp-cta-label">RSVP by email →</span>
+        </a>
         <div class="msg">
           <span class="rsvp-line">RSVP by Sunday, April 26</span>
-          <small>Text or call — spots on the tee sheet are limited.</small>
+          <small>Tap above, text, or call — spots on the tee sheet are limited.</small>
         </div>
         <div class="who">
           <div class="parent">
             Carolyn Coddington
-            <span>(925) 963-7092 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e885918d85898184898c8c9a8d9b9bd9d9d8d8a88f85898184c68b8785">[email&#160;protected]</a></span>
+            <span>(925) 963-7092 · <a href="mailto:myemailaddress1100@gmail.com">myemailaddress1100@gmail.com</a></span>
           </div>
           <div class="parent">
             Trevor Coddington
-            <span>(760) 809-4275 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d090f180b120f1e12191914131a0912133d1a101c1411531e1210">[email&#160;protected]</a></span>
+            <span>(760) 809-4275 · <a href="mailto:trevorcoddington@gmail.com">trevorcoddington@gmail.com</a></span>
           </div>
         </div>
       </div>
@@ -641,7 +681,7 @@
     }
   </style>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+  <script>
     // ==== TWEAKS SYSTEM ====
     const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       "showStripes": false,
