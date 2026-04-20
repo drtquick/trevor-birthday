@@ -396,6 +396,135 @@
     text-transform:uppercase; color: var(--cream);
   }
 
+  /* RSVP tracker (embedded form + live list) */
+  .rsvp-tracker{
+    grid-column: 1 / -1;
+    background: #fbf7ea;
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 0 3px 0 var(--ink);
+    padding: 16px 18px 14px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .rsvp-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;
+  }
+  .rsvp-eyebrow{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800; letter-spacing:.25em; font-size:11.5px;
+    text-transform:uppercase; color: var(--red);
+  }
+  .rsvp-head .rsvp-line{ font-family:'Inter', sans-serif; font-size:13.5px; color:#5d5142; letter-spacing:.02em; }
+  .rsvp-form{
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px 12px;
+  }
+  .rsvp-form .fld{
+    display:flex; flex-direction:column; gap:4px;
+    font-family:'Inter', sans-serif; font-weight:500; font-size:12.5px;
+    letter-spacing:.04em; text-transform:uppercase; color:#6b5d44;
+    border:none; padding:0; margin:0;
+  }
+  .rsvp-form .fld > span{ display:block; }
+  .rsvp-form .fld small{ color:#8a7d62; font-weight:400; text-transform:none; letter-spacing:0; }
+  .rsvp-form .fld input[type="text"],
+  .rsvp-form .fld input[type="number"],
+  .rsvp-form .fld textarea{
+    font-family:'Inter', sans-serif; font-weight:500; font-size:15px;
+    text-transform:none; letter-spacing:.01em; color: var(--ink);
+    padding:8px 10px;
+    border:1.5px solid #c9bf9e;
+    border-radius:4px;
+    background:#fff;
+    outline:none;
+  }
+  .rsvp-form .fld input:focus,
+  .rsvp-form .fld textarea:focus{
+    border-color: var(--grass-dk);
+    box-shadow: 0 0 0 3px rgba(31, 74, 40, .12);
+  }
+  .rsvp-form .fld textarea{ resize: vertical; min-height:44px; }
+  .rsvp-form .fld.note{ grid-column: 1 / -1; }
+  .rsvp-form .fld.sib input{ max-width:120px; }
+  .rsvp-form .fld.att{ grid-column: 1 / -1; }
+  .att-opts{ display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+  .att-opts label{
+    position:relative;
+    flex:1 1 auto; min-width:90px; cursor:pointer;
+    background:#fff; border:1.5px solid #c9bf9e; border-radius:4px;
+    padding:8px 10px; text-align:center;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800; letter-spacing:.16em; font-size:13px;
+    text-transform:uppercase; color: var(--ink);
+    transition: background .12s ease, border-color .12s ease, color .12s ease, box-shadow .12s ease;
+  }
+  .att-opts label:hover{ border-color: var(--grass-dk); }
+  .att-opts label:has(input:checked){
+    background: var(--grass-dk); color: var(--cream); border-color: var(--ink);
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.15);
+  }
+  .att-opts input{ position:absolute; opacity:0; pointer-events:none; inset:0; width:100%; height:100%; }
+  .att-opts label span{ pointer-events:none; }
+  .rsvp-submit{
+    grid-column: 1 / -1;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+    padding:12px 18px; margin-top:4px;
+    background: var(--grass-dk); color: var(--cream);
+    border-radius:4px; border:2px solid var(--ink);
+    box-shadow: 0 3px 0 var(--ink);
+    cursor:pointer; font: inherit;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .rsvp-submit:hover{ transform: translateY(-1px); box-shadow: 0 4px 0 var(--ink); background: var(--grass); }
+  .rsvp-submit:active{ transform: translateY(1px); box-shadow: 0 1px 0 var(--ink); }
+  .rsvp-submit[disabled]{ opacity:.65; cursor:not-allowed; transform:none; box-shadow: 0 3px 0 var(--ink); background: var(--grass-dk); }
+  .rsvp-status{
+    grid-column:1 / -1; margin:2px 0 0; min-height:18px;
+    font-family:'Inter', sans-serif; font-size:13.5px; color:#5d5142;
+  }
+  .rsvp-status.ok{ color: var(--grass-dk); font-weight:600; }
+  .rsvp-status.err{ color: var(--red-dk); font-weight:600; }
+
+  .rsvp-list{
+    border-top:1.5px dashed #c9bf9e;
+    padding-top:10px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .rsvp-list-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800; letter-spacing:.22em; font-size:12.5px;
+    text-transform:uppercase; color: var(--ink);
+  }
+  .rsvp-count{ color:#8a7d62; letter-spacing:.1em; font-size:12px; }
+  .rsvp-entries{
+    list-style:none; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:6px;
+    max-height: 240px; overflow-y:auto;
+  }
+  .rsvp-entry{
+    display:flex; flex-wrap:wrap; gap:6px 10px; align-items:baseline;
+    padding:8px 10px; background:#fff; border:1px solid #e5dfc5; border-radius:4px;
+    font-family:'Inter', sans-serif; font-size:14px; color:var(--ink);
+  }
+  .rsvp-entry .name{ font-weight:700; }
+  .rsvp-entry .chip{
+    display:inline-block;
+    font-family:'Big Shoulders Display',sans-serif; font-weight:800;
+    letter-spacing:.16em; font-size:10.5px; text-transform:uppercase;
+    padding:2px 7px; border-radius:999px; border:1.5px solid var(--ink);
+  }
+  .rsvp-entry .chip.yes{ background: var(--grass-dk); color: var(--cream); }
+  .rsvp-entry .chip.maybe{ background:#ead17a; color: var(--ink); }
+  .rsvp-entry .chip.no{ background:#e5dfc5; color:#6b5d44; }
+  .rsvp-entry .sibs{ color:#6b5d44; font-size:13px; }
+  .rsvp-entry .note{ flex-basis:100%; color:#4a4033; font-size:13.5px; font-style:italic; margin-top:2px; }
+  .rsvp-empty{ color:#8a7d62; font-style:italic; font-size:13.5px; padding:4px 2px; list-style:none; }
+
+  @media (max-width:560px){
+    .rsvp-form{ grid-template-columns: 1fr; }
+    .rsvp-form .fld.sib input{ max-width:140px; }
+  }
+
   /* footer */
   .foot{
     padding: 18px 48px 28px;
@@ -562,14 +691,59 @@
       </div>
 
       <div class="rsvp">
-        <a class="rsvp-cta" href="mailto:trevorcoddington@gmail.com,myemailaddress1100@gmail.com?subject=Trevor%27s%209th%20Birthday%20RSVP&amp;body=Hi%20Carolyn%20and%20Trevor%2C%0A%0AWe%27ll%20be%20there%20for%20the%20Pitch%20%26%20Putt%20Par-Tee%21%0A%0AName%3A%20%0ANumber%20of%20attendees%3A%20%0AAny%20dietary%20notes%3A%20%0A%0AThanks%21">
-          <span class="rsvp-cta-eyebrow">One-tap RSVP</span>
-          <span class="rsvp-cta-label">RSVP by email →</span>
-        </a>
-        <div class="msg">
-          <span class="rsvp-line">RSVP by Sunday, April 26</span>
-          <small>Tap above, text, or call — spots on the tee sheet are limited.</small>
+        <div class="rsvp-tracker">
+          <div class="rsvp-head">
+            <span class="rsvp-eyebrow">Tee sheet RSVP</span>
+            <span class="rsvp-line">RSVP by Sunday, April 26</span>
+          </div>
+
+          <form id="rsvp-form" class="rsvp-form" novalidate>
+            <label class="fld">
+              <span>Name</span>
+              <input type="text" name="name" required maxlength="60" placeholder="Your name" autocomplete="name">
+            </label>
+
+            <fieldset class="fld att">
+              <span>Are you in?</span>
+              <div class="att-opts">
+                <label><input type="radio" name="attending" value="yes" required><span>Yes</span></label>
+                <label><input type="radio" name="attending" value="maybe"><span>Maybe</span></label>
+                <label><input type="radio" name="attending" value="no"><span>No</span></label>
+              </div>
+            </fieldset>
+
+            <label class="fld sib">
+              <span>Siblings tagging along</span>
+              <input type="number" name="siblings" min="0" max="10" step="1" value="0" inputmode="numeric">
+            </label>
+
+            <label class="fld note">
+              <span>Note <small>(optional)</small></span>
+              <textarea name="note" maxlength="300" rows="2" placeholder="Dietary notes, well-wishes, caddie jokes…"></textarea>
+            </label>
+
+            <button type="submit" class="rsvp-submit">
+              <span class="rsvp-cta-eyebrow">Send it in</span>
+              <span class="rsvp-cta-label">Post RSVP →</span>
+            </button>
+            <p class="rsvp-status" id="rsvp-status" aria-live="polite"></p>
+          </form>
+
+          <div class="rsvp-list">
+            <div class="rsvp-list-head">
+              <span>Who's coming</span>
+              <span class="rsvp-count" id="rsvp-count">—</span>
+            </div>
+            <ul id="rsvp-entries" class="rsvp-entries">
+              <li class="rsvp-empty">Loading the tee sheet…</li>
+            </ul>
+          </div>
         </div>
+
+        <div class="msg">
+          <small>Spots on the tee sheet are limited — text or call if anything changes.</small>
+        </div>
+
         <div class="who">
           <div class="parent">
             Carolyn Coddington
@@ -766,6 +940,129 @@
 
     // Announce availability
     try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+  </script>
+
+  <!-- RSVP tracker: Firebase/Firestore (public, scoped to birthday_rsvps) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import {
+      getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, limit
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD_fmSt741RhcdHEZF4C7R5d2h5Ps9LMx4",
+      authDomain: "trevor-birthday.firebaseapp.com",
+      projectId: "trevor-birthday",
+      storageBucket: "trevor-birthday.firebasestorage.app",
+      messagingSenderId: "560963383249",
+      appId: "1:560963383249:web:fde09000be8e118fd0faf0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+    const col = collection(db, "birthday_rsvps");
+
+    const form    = document.getElementById("rsvp-form");
+    const status  = document.getElementById("rsvp-status");
+    const listEl  = document.getElementById("rsvp-entries");
+    const countEl = document.getElementById("rsvp-count");
+    const submit  = form ? form.querySelector(".rsvp-submit") : null;
+
+    function esc(s){
+      return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[c]));
+    }
+    function setStatus(kind, msg){
+      if (!status) return;
+      status.className = "rsvp-status" + (kind ? " " + kind : "");
+      status.textContent = msg || "";
+    }
+
+    function renderList(docs){
+      if (!listEl) return;
+      if (!docs.length){
+        listEl.innerHTML = '<li class="rsvp-empty">Be the first to tee off on the list.</li>';
+      } else {
+        listEl.innerHTML = docs.map(d => {
+          const att = d.attending === "yes" ? "yes"
+                    : d.attending === "no"  ? "no"
+                    : "maybe";
+          const lbl = att === "yes" ? "In" : att === "no" ? "Out" : "Maybe";
+          const sibs = (d.siblings|0) > 0
+            ? `<span class="sibs">+${d.siblings|0} sibling${(d.siblings|0)===1?"":"s"}</span>`
+            : "";
+          const note = d.note ? `<span class="note">"${esc(d.note)}"</span>` : "";
+          return `<li class="rsvp-entry">
+            <span class="name">${esc(d.name || "Anonymous")}</span>
+            <span class="chip ${att}">${lbl}</span>
+            ${sibs}
+            ${note}
+          </li>`;
+        }).join("");
+      }
+      if (countEl){
+        const yesCount = docs.filter(d => d.attending === "yes").length;
+        const mayCount = docs.filter(d => d.attending === "maybe").length;
+        const parts = [];
+        if (yesCount) parts.push(`${yesCount} in`);
+        if (mayCount) parts.push(`${mayCount} maybe`);
+        countEl.textContent = parts.length ? parts.join(" · ") : `${docs.length}`;
+      }
+    }
+
+    // Live subscription
+    const q = query(col, orderBy("createdAt", "asc"), limit(200));
+    onSnapshot(q, snap => {
+      const docs = snap.docs.map(d => d.data());
+      renderList(docs);
+    }, err => {
+      console.warn("rsvp read error", err);
+      if (listEl) listEl.innerHTML = '<li class="rsvp-empty">Couldn\'t load the tee sheet yet. Your RSVP will still post.</li>';
+    });
+
+    // Submit
+    if (form){
+      form.addEventListener("submit", async (ev) => {
+        ev.preventDefault();
+        const fd = new FormData(form);
+        const name = (fd.get("name") || "").toString().trim();
+        const attending = (fd.get("attending") || "").toString();
+        const siblings = Math.max(0, Math.min(10, parseInt(fd.get("siblings") || "0", 10) || 0));
+        const note = (fd.get("note") || "").toString().trim().slice(0, 300);
+
+        if (!name){ setStatus("err", "Please add a name."); return; }
+        if (!["yes","no","maybe"].includes(attending)){
+          setStatus("err", "Pick yes, maybe, or no.");
+          return;
+        }
+
+        submit && (submit.disabled = true);
+        setStatus("", "Posting RSVP…");
+
+        try {
+          await addDoc(col, {
+            name: name.slice(0, 60),
+            attending,
+            siblings,
+            note: note || null,
+            createdAt: serverTimestamp()
+          });
+          form.reset();
+          const sibInput = form.querySelector('input[name="siblings"]');
+          if (sibInput) sibInput.value = "0";
+          setStatus("ok", attending === "yes"
+            ? "You're on the tee sheet. See you Sunday!"
+            : attending === "maybe" ? "Got it — we'll save a spot, just in case."
+            : "Thanks for letting us know.");
+        } catch (err){
+          console.error("rsvp write error", err);
+          setStatus("err", "Couldn't post your RSVP. Please try again or text Trevor.");
+        } finally {
+          submit && (submit.disabled = false);
+        }
+      });
+    }
   </script>
 
 </body></html>
