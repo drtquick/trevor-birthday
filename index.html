@@ -588,7 +588,11 @@
     .rsvp .msg .rsvp-line{white-space:normal}
     .rsvp .msg{font-size:26px}
     .rsvp .who{padding-left:0; border-left:none; border-top:2px solid rgba(31,74,40,.25); padding-top:14px; gap:12px}
-    .flag{display:none}
+    .flag{top:14px; right:14px; bottom:auto; height:92px; width:66px; z-index:5}
+    .flag .banner{width:44px; height:30px; top:4px}
+    .flag .banner::after{font-size:22px; left:10px; top:4px}
+    .flag .base{display:none}
+    .hero::after{display:none}
     .body .eyebrow{font-size:14px; letter-spacing:.28em}
   }
   @media (max-width:420px){
@@ -602,6 +606,9 @@
     .where .addr{font-size:13.5px}
     .card{border-radius:14px}
     body{padding:16px}
+    .flag{top:10px; right:10px; height:80px; width:58px}
+    .flag .banner{width:38px; height:26px; top:4px}
+    .flag .banner::after{font-size:18px; left:8px; top:3px}
   }
 </style>
 </head>
